@@ -5,8 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Exercise_8.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="200" d:DesignWidth="600">
     <Grid>
-        <TextBlock>I am a Studenview</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <ListBox x:Name="StudentsBox" Height="150" ></ListBox>
+            <Button Height="50">Add Empty</Button>
+        </StackPanel>
+        
+
+        <StackPanel Grid.Column="1">
+            <Label HorizontalAlignment="Center">Vorname</Label>
+            <TextBox Height="50" TextAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+            <Label HorizontalAlignment="Center">Nachname</Label>
+            <TextBox Height="50" TextAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        </StackPanel>
     </Grid>
 </UserControl>
