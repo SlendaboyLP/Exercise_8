@@ -23,6 +23,8 @@ namespace Exercise_8.View
         public StudentView()
         {
             InitializeComponent();
+            DataContext = new ViewModel.StudentViewModel();
+
         }
     }
 }
