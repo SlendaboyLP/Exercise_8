@@ -5,7 +5,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Exercise_8.Model;
+using Exercise_8.View;
+using GalaSoft.MvvmLight.Command;
 
 namespace Exercise_8.ViewModel
 {
@@ -13,6 +16,8 @@ namespace Exercise_8.ViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<StudentModel> Students { get; set; } = new ObservableCollection<StudentModel>();
+
+        public ICommand AddEmptyStudentCommand { get; set; }
         private StudentModel _student;
         public StudentModel SelectedStudent
         {
@@ -50,13 +55,20 @@ namespace Exercise_8.ViewModel
         public StudentViewModel()
         {
             CreateStudents();
+            AddEmptyStudentCommand = new RelayCommand(AddEmptyStudent);
 
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             
+
+
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+
+
+
         }
     }
 }

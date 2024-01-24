@@ -20,10 +20,14 @@ namespace Exercise_8.View
     /// </summary>
     public partial class StudentView : UserControl
     {
+
+        public static ListBox StudentBoxBehind;
         public StudentView()
         {
             InitializeComponent();
             DataContext = new ViewModel.StudentViewModel();
+
+            StudentBoxBehind = StudentsBox;
 
         }
     }
