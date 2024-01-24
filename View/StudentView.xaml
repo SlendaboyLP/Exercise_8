@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Exercise_8.View"
+             xmlns:local="clr-namespace:Exercise_8.View" xmlns:viewmodel="clr-namespace:Exercise_8.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:StudentViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="600">
     <Grid>
@@ -14,7 +14,7 @@
 
         <StackPanel Grid.Row="0">
             <ListBox x:Name="StudentsBox" Height="120" ItemsSource="{Binding Path=Students}" SelectedItem="{Binding SelectedStudent}"></ListBox>
-            <Button Height="30">Add Empty</Button>
+            <Button Height="30" Command="{Binding AddEmptyStudentCommand}" >Add Empty</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1">

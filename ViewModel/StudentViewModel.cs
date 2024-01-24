@@ -41,14 +41,22 @@ namespace Exercise_8.ViewModel
 
         }
 
+        public void AddEmptyStudent()
+        {
+            Students.Add(new StudentModel());
+            OnPropertyChanged(nameof(Students));
+        }
+
         public StudentViewModel()
         {
             CreateStudents();
+
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            
         }
     }
 }

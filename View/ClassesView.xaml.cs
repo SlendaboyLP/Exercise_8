@@ -1,5 +1,4 @@
-﻿using Exercise_8.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,16 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Exercise_8
+namespace Exercise_8.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaktionslogik für ClassesView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ClassesView : UserControl
     {
-        public MainWindow()
+        public ClassesView()
         {
             InitializeComponent();
+            DataContext = new ViewModel.ClassesViewModel();
         }
     }
 }

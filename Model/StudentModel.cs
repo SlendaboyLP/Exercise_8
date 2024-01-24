@@ -21,7 +21,11 @@ namespace Exercise_8.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        public StudentModel()
+        {
+            FirstName = "Empty";
+            LastName = "Empty";
+        }
         public StudentModel(string fn, string ln) 
         {
             FirstName = fn;

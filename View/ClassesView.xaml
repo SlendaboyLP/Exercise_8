@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Exercise_8.View.ClassesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Exercise_8.View"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+
+		<StackPanel Grid.Row="0">
+			<ListBox x:Name="ClassesBox" Height="120" ItemsSource="{Binding Path=Classes}" SelectedItem="{Binding SelectedClass}"></ListBox>
+			<Button Height="30">Add Empty</Button>
+		</StackPanel>
+
+		<StackPanel Grid.Column="1">
+			<Label HorizontalAlignment="Center" Height="30">ID</Label>
+			<TextBox Height="30" TextAlignment="Center" VerticalContentAlignment="Center" Text="{Binding SelectedClass.ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+			<Label HorizontalAlignment="Center" Height="30">Topic</Label>
+			<TextBox Height="30" TextAlignment="Center" VerticalContentAlignment="Center" Text="{Binding SelectedClass.Topic, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+		</StackPanel>
+
+	</Grid>
+</UserControl>
