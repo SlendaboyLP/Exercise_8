@@ -14,8 +14,11 @@ namespace Exercise_8.Model
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public string FirstName { get { return _firstName; }  set { _firstName = value; OnPropertyChanged(nameof(FirstName)); } }
-        public string LastName { get { return _lastName; } set { _lastName = value; OnPropertyChanged(nameof(LastName)); } }
+        public string FirstName { get { return _firstName; }  set { _firstName = value; OnPropertyChanged(nameof(FirstName)); OnPropertyChanged(nameof(FullName)); } }
+        public string LastName { get { return _lastName; } set { _lastName = value; OnPropertyChanged(nameof(LastName)); OnPropertyChanged(nameof(FullName));  } }
+
+
+        public string FullName { get { return $"{FirstName} {LastName}";  } }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
@@ -32,10 +35,7 @@ namespace Exercise_8.Model
             LastName = ln;
         }
 
-        public override string ToString()
-        {
-            return $"{FirstName} {LastName}";
-        }
+       
     }
 
 }
