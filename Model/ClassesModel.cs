@@ -14,8 +14,10 @@ namespace Exercise_8.Model
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public string ID { get { return _id; } set { _id = value; OnPropertyChanged(nameof(ID)); } }
-        public string Topic { get { return _topic; } set { _topic = value; OnPropertyChanged(nameof(Topic)); } }
+        public string ID { get { return _id; } set { _id = value; OnPropertyChanged(nameof(ID)); OnPropertyChanged(nameof(FullID)); } } 
+        public string Topic { get { return _topic; } set { _topic = value; OnPropertyChanged(nameof(Topic)); OnPropertyChanged(nameof(FullID)); } }
+
+        public string FullID { get { return $"{ID} : {Topic}"; } }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

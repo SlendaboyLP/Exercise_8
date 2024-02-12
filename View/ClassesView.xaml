@@ -14,7 +14,7 @@
 		</Grid.ColumnDefinitions>
 
 		<StackPanel Grid.Row="0">
-			<ListBox x:Name="ClassesBox" Height="120" ItemsSource="{Binding Path=Classes}" SelectedItem="{Binding SelectedClass}"></ListBox>
+			<ListBox x:Name="ClassesBox" Height="120" ItemsSource="{Binding Path=Classes}" SelectedItem="{Binding SelectedClass}" DisplayMemberPath="FullID"></ListBox>
 			<Button Height="30">Add Empty</Button>
 		</StackPanel>
 
