@@ -15,7 +15,9 @@
 
 		<StackPanel Grid.Row="0">
 			<ListBox x:Name="ClassesBox" Height="120" ItemsSource="{Binding Path=Classes}" SelectedItem="{Binding SelectedClass}" DisplayMemberPath="FullID"></ListBox>
-			<Button Height="30">Add Empty</Button>
+            <Button Height="30" Command="{Binding AddEmptyClassCommand}">Add Empty</Button>
+            <Button Height="30" Command="{Binding AddStudentCommand}">Add Selected Student</Button>
+            <Button Height="30" Command="{Binding RemoveStudentCommand}">Remove Selected Student</Button>
 		</StackPanel>
 
 		<StackPanel Grid.Column="1">
@@ -23,7 +25,10 @@
 			<TextBox Height="30" TextAlignment="Center" VerticalContentAlignment="Center" Text="{Binding SelectedClass.ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 			<Label HorizontalAlignment="Center" Height="30">Topic</Label>
 			<TextBox Height="30" TextAlignment="Center" VerticalContentAlignment="Center" Text="{Binding SelectedClass.Topic, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-		</StackPanel>
+            <Label HorizontalAlignment="Center" Height="30">Students in Class</Label>
+            <ListView Height="60" ItemsSource="{Binding StudentsInClass}"></ListView>
+        
+        </StackPanel>
 
 	</Grid>
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using Exercise_8.Model;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Exercise_8.ViewModel
 {
@@ -25,6 +27,26 @@ namespace Exercise_8.ViewModel
             get { return _class; }
         }
 
+        public ICommand AddEmptyClassCommand { get; set; }
+
+        public void AddEmptyClass()
+        {
+            Classes.Add(new ClassesModel());
+            OnPropertyChanged(nameof(Classes));
+        }
+
+
+        public ICommand AddStudentCommand { get; set; }
+        public void AddStudent()
+        {
+
+        }
+
+        public ICommand RemoveStudentCommand { get; set; }
+        public void RemoveStudent()
+        {
+
+        }
 
         public void CreateClasses()
         {
@@ -45,6 +67,10 @@ namespace Exercise_8.ViewModel
         public ClassesViewModel()
         {
             CreateClasses();
+            AddEmptyClassCommand = new RelayCommand(AddEmptyClass);
+            AddStudentCommand = new RelayCommand(AddStudent);
+            RemoveStudentCommand = new RelayCommand(RemoveStudent);
+
 
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,8 @@ namespace Exercise_8.Model
         public string Topic { get { return _topic; } set { _topic = value; OnPropertyChanged(nameof(Topic)); OnPropertyChanged(nameof(FullID)); } }
 
         public string FullID { get { return $"{ID} : {Topic}"; } }
+
+        public ObservableCollection<StudentModel> StudentsInClass {  get; set; }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
