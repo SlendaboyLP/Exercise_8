@@ -30,11 +30,15 @@ namespace Exercise_8.Model
         {
             ID = "Empty";
             Topic = "Empty";
+            StudentsInClass = new ObservableCollection<StudentModel>();
+
         }
         public ClassesModel(string id, string topic)
         {
             ID = id;
             Topic = topic;
+            StudentsInClass = new ObservableCollection<StudentModel>();
+
         }
 
         public override string ToString()

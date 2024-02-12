@@ -15,12 +15,15 @@ namespace Exercise_8.ViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<ClassesModel> Classes { get; set; } = new ObservableCollection<ClassesModel>();
+
+
         private ClassesModel _class;
         public ClassesModel SelectedClass
         {
             set
             {
                 _class = value;
+                BaseViewModel.SelectedClass = value;
                 OnPropertyChanged(nameof(SelectedClass));
                 OnPropertyChanged(nameof(Classes));
             }
@@ -39,13 +42,21 @@ namespace Exercise_8.ViewModel
         public ICommand AddStudentCommand { get; set; }
         public void AddStudent()
         {
+            if (SelectedClass.StudentsInClass.Contains(BaseViewModel.SelectedStudent))
+                return; 
 
+
+            SelectedClass.StudentsInClass.Add(BaseViewModel.SelectedStudent);
+            OnPropertyChanged(nameof(SelectedClass.StudentsInClass));
         }
 
         public ICommand RemoveStudentCommand { get; set; }
         public void RemoveStudent()
         {
-
+            if (!SelectedClass.StudentsInClass.Contains(BaseViewModel.SelectedStudent))
+                return;
+            SelectedClass.StudentsInClass.Remove(BaseViewModel.SelectedStudent);
+            OnPropertyChanged(nameof(SelectedClass.StudentsInClass));
         }
 
         public void CreateClasses()
@@ -66,7 +77,10 @@ namespace Exercise_8.ViewModel
 
         public ClassesViewModel()
         {
+
+
             CreateClasses();
+
             AddEmptyClassCommand = new RelayCommand(AddEmptyClass);
             AddStudentCommand = new RelayCommand(AddStudent);
             RemoveStudentCommand = new RelayCommand(RemoveStudent);

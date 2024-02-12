@@ -24,8 +24,11 @@ namespace Exercise_8.ViewModel
             set
             {
                 _student = value;
+                BaseViewModel.SelectedStudent = value;
+
                 OnPropertyChanged(nameof(SelectedStudent));
                 OnPropertyChanged(nameof(Students));
+
             }
             get { return _student; }
         }

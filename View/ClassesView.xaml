@@ -26,7 +26,7 @@
 			<Label HorizontalAlignment="Center" Height="30">Topic</Label>
 			<TextBox Height="30" TextAlignment="Center" VerticalContentAlignment="Center" Text="{Binding SelectedClass.Topic, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label HorizontalAlignment="Center" Height="30">Students in Class</Label>
-            <ListView Height="60" ItemsSource="{Binding StudentsInClass}"></ListView>
+            <ListView Height="60" ItemsSource="{Binding SelectedClass.StudentsInClass}" DisplayMemberPath="FullName"></ListView>
         
         </StackPanel>
 
